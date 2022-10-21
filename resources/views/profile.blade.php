@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $title }}
     </x-slot>
-    <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" />
+    <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
     <div class="md:w-2/3 w-full mx-auto my-2 py-3 px-6 ">
         <div class="mockup-code flex flex-col justify-center items-center p-3 bg-white">
             <div class="stats stats-vertical  m-1 bg-transparent ">
@@ -10,7 +10,7 @@
                     <div class="stat-figure text-secondary">
                         <div class="avatar ">
                             <div class="w-40 rounded-full  ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src="https://placeimg.com/128/128/people" />
+                                <img src="/img/profile/{{ $user->profile }}" />
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                             </path>
                         </svg>
                     </div>
-                    <div class="stat-title">Total Posts</div>
+                    <div class="stat-title">Total Posts </div>
                     <div class="stat-value text-primary">{{ $user->articles()->count() }} </div>
                 </div>
 

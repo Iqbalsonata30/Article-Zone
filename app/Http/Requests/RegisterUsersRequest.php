@@ -27,6 +27,7 @@ class RegisterUsersRequest extends FormRequest
             'name'              => ['required', 'string'],
             'email'             => ['required', 'email', 'unique:users,email'],
             'password'          => ['required', 'min:5', 'alpha_num'],
+            'profile'           => ['required', 'image', 'mimes:jpg,png,jpeg','max:2048']
         ];
     }
     public function messages()
@@ -39,7 +40,11 @@ class RegisterUsersRequest extends FormRequest
             'email.email'                => 'Email yang dimasukkan harus email valid.',
             'password.min'               => 'Password minimal berisi 5 kata.',
             'email.unique'               => 'E-mail sudah digunakan.',
-            'password.alpha_num'         => 'Password harus berisi alphabet dan angka.'
+            'password.alpha_num'         => 'Password harus berisi alphabet dan angka.',
+            'profile.required'           => 'Profile profile harus dimasukkan.',
+            'profile.image'              => 'Profile picture harus gambar',
+            'profile.mimes'              => 'Profile picture harus berektensi jpg,png,dan jpeg.',
+            'profile.max'                => 'Profile picture tidak boleh lebih dari 2 MB.'
         ];
     }
 }

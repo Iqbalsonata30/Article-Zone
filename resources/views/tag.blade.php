@@ -3,7 +3,7 @@
         {{ $title }}
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="{{ $title }}" user="{{ $user }}" />
+        <x-user-navbar title="{{ $title }}" user="{{ $user }}" profile="{{ $user->profile }}"/>
     @else
         <x-navbar title="{{ $title }}" />
     @endif

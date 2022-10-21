@@ -36,12 +36,13 @@
         <div class="dropdown dropdown-end ">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" id="btn" />
+                    <img src="/img/profile/{{ $profile }}" id="btn" />
                 </div>
             </label>
             <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow hidden "
                 id="dropdown-btn">
                 <div class="card-body selection:bg-gray-400">
+
                     <a href="{{ route('profile', ['user' => $user]) }}"
                         class="font-serif text-md hover:bg-sky-300 hover:rounded-xl hover:text-white p-2 hover:transition hover:duration-300 hover:ease-in-out ">Profile</a>
                     <form action="{{ route('logout.action') }}" method="POST"

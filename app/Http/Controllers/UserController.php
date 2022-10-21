@@ -48,10 +48,16 @@ class UserController extends Controller
     public function register(RegisterUsersRequest $request)
     {
         $request->validated();
+        $profile = $request->profile;
+        if ($request->hasFile('profile')) {
+            $profile->storeAs('img/profile', $profile->hashName());
+        }
+
         $UserCreated = User::create([
             'name'                    => $request->name,
             'email'                   => $request->email,
             'password'                => Hash::make($request->password),
+            'profile'                 => $profile->hashName(),
         ]);
         if ($UserCreated) return to_route('login.form')->with('message', 'User Created');
         return to_route('register.form')->with('message', 'User Created failed.');
@@ -68,9 +74,9 @@ class UserController extends Controller
 
     public function profile($email)
     {
-        if(Session::has('token')){
+        if (Session::has('token')) {
             $User = User::firstWhere('email', $email);
-            if(!$User) return view('error.error',['data' => $email]);
+            if (!$User) return view('error.error', ['data' => $email]);
             $Title = Str::of($User->name)->ucfirst() . ' ~ Article-Zone';
             return view('profile', [
                 'title' => $Title,

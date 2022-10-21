@@ -3,7 +3,7 @@
         Page Error
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="Error Page" user="Error" />
+        <x-user-navbar title="Error Page" user="Error" profile="{{ $user->profile }}" />
     @else
         <x-navbar title="Error Page" />
     @endif

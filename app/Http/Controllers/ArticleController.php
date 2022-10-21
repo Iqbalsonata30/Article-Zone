@@ -23,7 +23,7 @@ class ArticleController extends Controller
             'article'       => $Article,
             'comments'      => $Comment,
             'author'        => $User->name,
-            'user'          => $User->email
+            'user'          => $User
         ]);
     }
 
@@ -41,7 +41,7 @@ class ArticleController extends Controller
                     'currentPage'   => $Articles->currentPage(),
                     'prevPage'      => $Articles->previousPageUrl()
                 ],
-                'user'      => $User->email
+                'user'      => $User
             ]);
         } else {
             return redirect()->back();
@@ -78,7 +78,7 @@ class ArticleController extends Controller
         return view('article-edit', [
             'title'     => $Title,
             'article'   => $Article,
-            'user'      => $User->email
+            'user'      => $User
         ]);
     }
 
@@ -106,7 +106,7 @@ class ArticleController extends Controller
         $User  = User::firstWhere('token', session()->get('token'));
         $Title = Str::of($tag)->ucfirst() . " ~ Article-Zone";
         return view('tag', [
-            'user'  => $User->email,
+            'user'  => $User,
             'title' => $Title,
             'tag'   => $tag,
             'item'  => $Tag

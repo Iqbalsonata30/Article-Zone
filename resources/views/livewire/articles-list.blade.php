@@ -3,16 +3,16 @@
 </x-slot>
 <div>
     @if (session('token'))
-        <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" />
+        <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
     @else
-        <x-navbar title="{{ $title }}" />
+        <x-navbar title=" {{ $title }}" />
     @endif
     <div class="flex justify-center items-center flex-col flex-wrap gap-5 md:gap-4 mt-5 ">
         @foreach ($articles as $article)
             <x-article title="{{ $article->title }}" description="{{ $article->description }}"
                 date="{{ $article->updated_at }}" tag="{{ $article->tag }}"
                 route="{{ route('article.show', ['slug' => $article->slug]) }}" name="{{ $article->users->name }}"
-                total-comments="{{ $article->comments->count() }}" />
+                total-comments="{{ $article->comments->count() }}" profile="{{ $article->users->profile }}" />
         @endforeach
     </div>
     <div class="
