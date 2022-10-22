@@ -27,6 +27,7 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles/edit/{slug}', 'editArticle')->name('article.edit');
     Route::put('/articles/{id}', 'update')->name('article.update');
     Route::get('/tags/{tag}', 'detail_tag')->name('tags');
+    Route::get('/posts/{email}','posts_user')->name('posts.user');
 });
 Route::controller(UserController::class)->group(function () {
     Route::get('/login', 'login_form')->name('login.form');

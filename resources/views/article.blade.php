@@ -41,9 +41,9 @@
                 <div class="flex items-center">
                     <img class="object-cover w-10 h-10 mx-4 rounded-full"
                         src="/img/profile/{{ $article->users->profile }}" alt="avatar">
-                    <a
+                    <a href="{{ route('posts.user', ['email' => $article->users->email]) }}"
                         class="font-bold text-gray-700 cursor-pointer text-sm md:text-lg ">{{ $article->users->name }}</a>
-                    <!-- lg -->
+
                 </div>
             </div>
             <div class="divider text-lg font-mono font-semibold">Comment</div>

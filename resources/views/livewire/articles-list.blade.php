@@ -12,7 +12,7 @@
             <x-article title="{{ $article->title }}" description="{{ $article->description }}"
                 date="{{ $article->updated_at }}" tag="{{ $article->tag }}"
                 route="{{ route('article.show', ['slug' => $article->slug]) }}" name="{{ $article->users->name }}"
-                total-comments="{{ $article->comments->count() }}" profile="{{ $article->users->profile }}" />
+                total-comments="{{ $article->comments->count() }}" profile="{{ $article->users->profile }}" email="{{ $article->users->email }}"/>
         @endforeach
     </div>
     <div class="

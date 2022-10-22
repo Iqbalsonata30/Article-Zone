@@ -76,7 +76,7 @@ class UserController extends Controller
     {
         if (Session::has('token')) {
             $User = User::firstWhere('email', $email);
-            if (!$User) return view('error.error', ['data' => $email]);
+            if (!$User) return redirect()->back();
             $Title = Str::of($User->name)->ucfirst() . ' ~ Article-Zone';
             return view('profile', [
                 'title' => $Title,

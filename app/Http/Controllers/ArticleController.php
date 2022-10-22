@@ -15,6 +15,7 @@ class ArticleController extends Controller
     {
         $Article = $article->firstWhere('slug', $slug);
         $User = User::firstWhere('token', Session::get('token'));
+        if (!$Article) return view('error.error', ['data' => $slug, 'user' => $User]);
         $ArticleTitle = $Article->title;
         $Comment      = $Article->comments()->get();
         $Title  = Str::of("$ArticleTitle ~ Article-Zone")->title();
@@ -110,6 +111,26 @@ class ArticleController extends Controller
             'title' => $Title,
             'tag'   => $tag,
             'item'  => $Tag
+        ]);
+    }
+
+    public function posts_user($email)
+    {
+        $User          = User::firstWhere('token', Session::get('token'));
+        $ArticlesUser   = User::firstWhere('email', $email);
+        if (!$ArticlesUser)    return view('error.error', ['data' => $email, 'user' => $User]);
+        $Title          = 'Posts By ' . Str::of($ArticlesUser->name)->ucfirst();
+        $Articles       = $ArticlesUser->articles()->orderBy('id', 'desc')->paginate(4);
+        return view('user-articles', [
+            'title'         => $Title,
+            'articles'      => $Articles,
+            'userarticles'  => $ArticlesUser,
+            'meta'     => [
+                'nextPage'      => $Articles->nextPageUrl(),
+                'prevPage'      => $Articles->previousPageUrl(),
+                'currentPage'   => $Articles->currentPage()
+            ],
+            'user'           => $User
         ]);
     }
 }
