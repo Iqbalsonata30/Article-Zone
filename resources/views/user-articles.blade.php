@@ -8,10 +8,10 @@
         <x-navbar title="{{ $title }}" />
     @endif
     <h1 class="text-3xl font-semibold font-serif text-center p-2 py-3">Posts by {{ $userarticles->name }} : </h1>
-    <div class="flex justify-center items-stretch flex-row flex-wrap gap-4 md:w-2/3 mx-auto w-full p-3 ">
+    <div class="flex justify-center items-stretch flex-row flex-wrap gap-2 md:gap-4 md:w-2/3 mx-auto w-full">
         @foreach ($articles as $post)
             <a href="{{ route('article.show', ['slug' => $post->slug]) }}"
-                class="hover:scale-110 hover:transition group hover:duration-300">
+                class="hover:scale-110 hover:transition group hover:duration-300 ">
                 <x-card class="group-hover:bg-blue-400" tag="{{ $post->tag }}" title="{{ $post->title }}"
                     description="{{ $post->description }}">
                     <div class="flex items-center justify-between">

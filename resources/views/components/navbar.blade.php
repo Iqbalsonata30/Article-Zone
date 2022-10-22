@@ -8,8 +8,8 @@
                 </svg>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Item 1</a></li>
-                <li><a>Item 3</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a>Tags List/a></li>
             </ul>
         </div>
         <a class="btn btn-ghost normal-case text-xl" href="{{ route('home') }}">Article-Zone</a>
@@ -21,7 +21,7 @@
                     Home
                 </a>
             </li>
-            <li><a>Item 3</a></li>
+            <li><a>Tags List</a></li>
         </ul>
     </div>
     <div class="navbar-end">
