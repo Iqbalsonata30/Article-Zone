@@ -2,7 +2,11 @@
     <x-slot name="title">
         {{ $title }}
     </x-slot>
-    <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
+    @if (session('token'))
+        <x-user-navbar user="{{ $user->email }}" profile="{{ $user->profile }}" />
+    @else
+        <x-navbar />
+    @endif
     <div class="md:w-2/3 w-full mx-auto my-2 py-3 px-6 ">
         <div class="mockup-code flex flex-col justify-center items-center p-3 bg-white">
             <div class="stats stats-vertical  m-1 bg-transparent ">

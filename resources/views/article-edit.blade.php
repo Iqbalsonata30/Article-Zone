@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $title }}
     </x-slot>
-    <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
+    <x-user-navbar  user="{{ $user->email }}" profile="{{ $user->profile }}" />
     <div class="md:w-2/3 mx-auto border mt-4 w-full p-3">
         <x-mockup>
             <form action="{{ route('article.update', ['id' => $article->id]) }}" method="POST">

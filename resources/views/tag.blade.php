@@ -3,9 +3,9 @@
         {{ $title }}
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="{{ $title }}" user="{{ $user }}" profile="{{ $user->profile }}"/>
+        <x-user-navbar  user="{{ $user }}" profile="{{ $user->profile }}"/>
     @else
-        <x-navbar title="{{ $title }}" />
+        <x-navbar  />
     @endif
     <div class="md:w-2/3 max-w-full mx-auto  p-3 m-2  ">
         <div class="collapse border border-base-300 bg-base-100 rounded-box  ">

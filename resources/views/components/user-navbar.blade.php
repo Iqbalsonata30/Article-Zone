@@ -9,13 +9,17 @@
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('home') }}" @if (request()->segment(1) === null) class="active" @endif>
                         Home
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard') }}"
-                        @if ($title === 'Dashboard ~ Article-Zone') class="active" @endif>Dashboard</a>
+                    <a href="{{ route('users.list') }}" @if (request()->segment(1) === 'users') class="active" @endif>
+                        Users List
+                    </a>
+                </li>
+                <li><a href="{{ route('dashboard') }}"
+                        @if (request()->segment(1) === 'dashboard') class="active" @endif>Dashboard</a>
                 </li>
             </ul>
         </div>
@@ -24,11 +28,16 @@
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
             <li>
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" @if (request()->segment(1) === null) class="active" @endif>
                     Home
                 </a>
             </li>
-            <li><a href="{{ route('dashboard') }}" @if ($title === 'Dashboard ~ Article-Zone') class="active" @endif>Dashboard</a>
+            <li>
+                <a href="{{ route('users.list') }}" @if (request()->segment(1) === 'users') class="active" @endif>
+                    Users List
+                </a>
+            </li>
+            <li><a href="{{ route('dashboard') }}" @if (request()->segment(1) === 'dashboard') class="active" @endif>Dashboard</a>
             </li>
         </ul>
     </div>

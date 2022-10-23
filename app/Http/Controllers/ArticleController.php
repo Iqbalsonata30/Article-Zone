@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
+use function PHPUnit\Framework\isNull;
+
 class ArticleController extends Controller
 {
     public function show(Article $article, $slug)
@@ -105,6 +107,7 @@ class ArticleController extends Controller
     {
         $Tag   = Article::where('tag', $tag)->get();
         $User  = User::firstWhere('token', session()->get('token'));
+        if (count($Tag) < 1)  return view('error.error', ['data' => $tag, 'user' => $User]);
         $Title = Str::of($tag)->ucfirst() . " ~ Article-Zone";
         return view('tag', [
             'user'  => $User,

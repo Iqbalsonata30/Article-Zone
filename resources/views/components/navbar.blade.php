@@ -9,7 +9,7 @@
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a>Tags List/a></li>
+                <li><a href="{{ route('users.list') }}">Users List</a></li>
             </ul>
         </div>
         <a class="btn btn-ghost normal-case text-xl" href="{{ route('home') }}">Article-Zone</a>
@@ -17,11 +17,12 @@
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
             <li>
-                <a href="{{ route('home') }}" @if ($title === 'Home ~ Article-Zone') class="active" @endif>
+                <a href="{{ route('home') }}" @if (request()->segment(1) === null) class="active" @endif>
                     Home
                 </a>
             </li>
-            <li><a>Tags List</a></li>
+            <li><a href="{{ route('users.list') }}" @if (request()->segment(1) === 'users') class="active" @endif>Users
+                    List</a></li>
         </ul>
     </div>
     <div class="navbar-end">

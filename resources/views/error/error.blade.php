@@ -3,9 +3,9 @@
         Page Error
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="Error Page" user="Error" profile="{{ $user->profile }}" />
+        <x-user-navbar user="Error" profile="{{ $user->profile }}" />
     @else
-        <x-navbar title="Error Page" />
+        <x-navbar />
     @endif
     <div class="flex justify-center items-center min-h-screen">
         <h2 class="text-4xl">404 |</h2>

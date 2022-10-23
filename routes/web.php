@@ -27,7 +27,7 @@ Route::controller(ArticleController::class)->group(function () {
     Route::get('/articles/edit/{slug}', 'editArticle')->name('article.edit');
     Route::put('/articles/{id}', 'update')->name('article.update');
     Route::get('/tags/{tag}', 'detail_tag')->name('tags');
-    Route::get('/posts/{email}','posts_user')->name('posts.user');
+    Route::get('/posts/{email}', 'posts_user')->name('posts.user');
 });
 Route::controller(UserController::class)->group(function () {
     Route::get('/login', 'login_form')->name('login.form');
@@ -36,6 +36,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/register', 'register')->name('register.action');
     Route::delete('/logout', 'logout')->name('logout.action');
     Route::get('/profile/{user}', 'profile')->name('profile');
+    Route::get('/users', 'users_list')->name('users.list');
 });
 Route::controller(CommentController::class)->group(function () {
     Route::post('/comments/{slug}', 'inputComment')->name('comment.create');

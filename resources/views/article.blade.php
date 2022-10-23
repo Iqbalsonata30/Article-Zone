@@ -3,9 +3,9 @@
         {{ $title }}
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
+        <x-user-navbar  user="{{ $user->email }}" profile="{{ $user->profile }}" />
     @else
-        <x-navbar title="{{ $title }}" />
+        <x-navbar  />
     @endif
     @if (session('message'))
         <x-toast message="{{ session()->get('message') }}"

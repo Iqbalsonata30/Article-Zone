@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $title }}
     </x-slot>
-    <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
+    <x-user-navbar  user="{{ $user->email }}" profile="{{ $user->profile }}" />
     @if (session('message'))
         <x-toast message="{{ session()->get('message') }}" class="alert alert-info shadow-xl animate-bounce" />
     @endif

@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -75,15 +74,29 @@ class UserController extends Controller
 
     public function profile($email)
     {
-        if (Session::has('token')) {
-            $User = User::firstWhere('email', $email);
-            if (!$User) return redirect()->back();
-            $Title = Str::of($User->name)->ucfirst() . ' ~ Article-Zone';
-            return view('profile', [
-                'title' => $Title,
-                'user'  => $User,
-            ]);
-        }
-        return redirect()->back();
+        $User = User::firstWhere('email', $email);
+        if (!$User) return redirect()->back();
+        $Title = Str::of($User->name)->ucfirst() . ' ~ Article-Zone';
+        return view('profile', [
+            'title' => $Title,
+            'user'  => $User,
+        ]);
+    }
+
+    public function users_list()
+    {
+        $Title = 'Article-Zone ~ Tags-List';
+        $Users  = User::orderBy('name', 'asc')->paginate(6);
+        $User = User::firstWhere('token', Session::get('token'));
+        return view('users-list', [
+            'title' => $Title,
+            'users'  => $Users,
+            'meta'     => [
+                'nextPage'      => $Users->nextPageUrl(),
+                'prevPage'      => $Users->previousPageUrl(),
+                'currentPage'   => $Users->currentPage()
+            ],
+            'user'  => $User
+        ]);
     }
 }

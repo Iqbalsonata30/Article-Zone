@@ -3,9 +3,9 @@
         {{ $title }}
     </x-slot>
     @if (session('token'))
-        <x-user-navbar title="{{ $title }}" user="{{ $user->email }}" profile="{{ $user->profile }}" />
+        <x-user-navbar user="{{ $user->email }}" profile="{{ $user->profile }}" />
     @else
-        <x-navbar title="{{ $title }}" />
+        <x-navbar />
     @endif
     <h1 class="text-3xl font-semibold font-serif text-center p-2 py-3">Posts by {{ $userarticles->name }} : </h1>
     <div class="flex justify-center items-stretch flex-row flex-wrap gap-2 md:gap-4 md:w-2/3 mx-auto w-full">
