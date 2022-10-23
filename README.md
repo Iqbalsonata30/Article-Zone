@@ -1,1 +1,1 @@
- <h1 style="text-align:center;">Article-Zone </h1>
+ <h1 align="center">Article-Zone </h1>
