@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -48,8 +49,8 @@ class UserController extends Controller
     public function register(RegisterUsersRequest $request)
     {
         $request->validated();
-        $profile = $request->profile;
         if ($request->hasFile('profile')) {
+            $profile = $request->profile;
             $profile->storeAs('img/profile', $profile->hashName());
         }
 
@@ -69,7 +70,7 @@ class UserController extends Controller
             'token' => NULL
         ]);
         Session::remove('token');
-        return to_route('login.form')->with('message', 'Logged Out');
+        return to_route('home')->with('message', 'Logged Out');
     }
 
     public function profile($email)

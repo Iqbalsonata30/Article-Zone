@@ -39,8 +39,8 @@
             </div>
             <div class="flex items-center justify-end px-5 py-4 bg-base-200">
                 <div class="flex items-center">
-                    <img class="object-cover w-10 h-10 mx-4 rounded-full"
-                        src="/img/profile/{{ $article->users->profile }}" alt="avatar">
+                    <img class="object-cover w-10 h-10 mx-4 rounded-full" src="/img/{{ $article->users->profile }}"
+                        alt="avatar">
                     <a href="{{ route('posts.user', ['email' => $article->users->email]) }}"
                         class="font-bold text-gray-700 cursor-pointer text-sm md:text-lg ">{{ $article->users->name }}</a>
 

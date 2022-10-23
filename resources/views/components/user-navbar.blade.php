@@ -36,7 +36,7 @@
         <div class="dropdown dropdown-end ">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                 <div class="w-10 rounded-full">
-                    <img src="/img/profile/{{ $profile }}" id="btn" />
+                    <img src="/img/{{ $profile }}" id="btn" />
                 </div>
             </label>
             <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow hidden "

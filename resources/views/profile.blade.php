@@ -10,7 +10,7 @@
                     <div class="stat-figure text-secondary">
                         <div class="avatar ">
                             <div class="w-40 rounded-full  ring ring-primary ring-offset-base-100 ring-offset-2">
-                                <img src="/img/profile/{{ $user->profile }}" />
+                                <img src="/img/{{ $user->profile }}" />
                             </div>
                         </div>
                     </div>

@@ -44,8 +44,8 @@
         </p>
         <div class="flex items-center">
             <div class="flex items-center">
-                <img class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block"
-                    src="/img/profile/{{ $profile }}" alt="avatar">
+                <img class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block" src="/img/{{ $profile }}"
+                    alt="avatar">
                 <a
                     href="{{ route('posts.user', ['email' => $email]) }}"class="font-bold text-gray-700 cursor-pointer text-sm md:text-lg ">{{ $name }}</a>
                 <!-- lg -->
