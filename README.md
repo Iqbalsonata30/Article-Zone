@@ -7,5 +7,6 @@
     <li><p>PHP require version 8.1.0 or higher.</p></li>
     <li><p>Node Package Manager LTS</p></li>
     <li><p>Composer Latest</p></li>
+    <li><p>Mysql DBMS</p></li>
 <ul>
 
